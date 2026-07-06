@@ -1,9 +1,9 @@
 # Payments
 App created to track payments 
 
-## 📌 Commits en el desarrollo de la App 
+## Commits en el desarrollo de la App 
 
-Para mantener un historial de cambios claro y organizado, utilizaremos la siguiente convención de commits:
+A continuación la estructura del mensaje de los commit del proyecto
 
 | **Tipo**      | **Descripción**                                     |
 |--------------|-----------------------------------------------------|
