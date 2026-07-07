@@ -9,9 +9,9 @@ from googleapiclient.errors import HttpError
 # If modifying these scopes, delete the file token.json.
 SCOPES = ["https://www.googleapis.com/auth/gmail.readonly"]
 
-def main():
-  """Shows basic usage of the Gmail API.
-  Lists the user's Gmail labels.
+def generate_creds():
+  """Script made to check for credentials and tokens
+  It checks if the token.json exists, if not it creates a new one and saves it.
   """
   creds = None
   # The file token.json stores the user's access and refresh tokens, and is
@@ -31,23 +31,5 @@ def main():
     # Save the credentials for the next run
     with open("../data/token.json", "w") as token:
       token.write(creds.to_json())
-
-  try:
-    # Call the Gmail API
-    service = build("gmail", "v1", credentials=creds)
-    results = service.users().labels().list(userId="me").execute()
-    labels = results.get("labels", [])
-
-    if not labels:
-      print("No labels found.")
-      return
-    print("Labels:")
-    for label in labels:
-      print(label["name"])
-
-  except HttpError as error:
-    # TODO(developer) - Handle errors from gmail API.
-    print(f"An error occurred: {error}")
-
-if __name__ == "__main__":
-  main()
+    
+    return creds
